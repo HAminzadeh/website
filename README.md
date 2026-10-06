@@ -1,16 +1,52 @@
-# SakhtYar Flow Theme 0.1.0
+# SakhtYar Flow Website
 
-پس از نصب و فعال‌سازی قالب، به‌صورت خودکار:
-- صفحات اصلی سایت ساخته می‌شوند.
-- صفحه «خانه» به عنوان Front Page تعیین می‌شود.
-- صفحه «دانش ساخت» به عنوان Posts Page تعیین می‌شود.
-- منوی اصلی ساخته و متصل می‌شود.
-- Permalink روی /%postname%/ قرار می‌گیرد.
-- Timezone روی Asia/Tehran قرار می‌گیرد.
-- ایندکس موتورهای جستجو فعلاً غیرفعال می‌شود تا زمان لانچ.
+## Local development
 
-نصب:
-نمایش > پوسته‌ها > افزودن پوسته > بارگذاری پوسته > فایل ZIP > نصب > فعال‌سازی
+Prerequisite:
+- Docker Desktop
+- Git
+- IntelliJ IDEA / PhpStorm
 
-بعد از لانچ نهایی:
-تنظیمات > خواندن > گزینه جلوگیری از ایندکس شدن را خاموش کنید.
+Start the local site:
+
+```powershell
+.\scripts\start-local.ps1
+```
+
+URLs:
+- Site: http://localhost:8080
+- Admin: http://localhost:8080/wp-admin
+- phpMyAdmin: http://localhost:8081
+
+Stop:
+
+```powershell
+.\scripts\stop-local.ps1
+```
+
+Reset all local WordPress data:
+
+```powershell
+.\scripts\reset-local.ps1
+```
+
+Build an installable WordPress theme ZIP:
+
+```powershell
+.\scripts\build-theme.ps1 -Version 0.2.0
+```
+
+Output:
+`dist\sakhtyar-flow-theme-0.2.0.zip`
+
+## Repository layout
+
+```text
+theme/sakhtyar-flow/   WordPress theme source
+scripts/               Local dev and build scripts
+content/               Versioned pages/articles/data
+dist/                  Generated ZIP packages (Git ignored)
+docker-compose.yml     Local WordPress stack
+```
+
+`.env` is local-only and is ignored by Git. Use `.env.example` as the template.

@@ -1,0 +1,15 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="Run SakhtYar Local" type="ShConfigurationType">
+    <option name="SCRIPT_TEXT" value="" />
+    <option name="INDEPENDENT_SCRIPT_PATH" value="true" />
+    <option name="SCRIPT_PATH" value="D:\ChatGPT_Projects\SakhtYar\WebSite\sakhtyar-flow\scripts\playground-bootstrap.ps1" />
+    <option name="SCRIPT_OPTIONS" value="" />
+    <option name="INDEPENDENT_SCRIPT_WORKING_DIRECTORY" value="true" />
+    <option name="SCRIPT_WORKING_DIRECTORY" value="D:\ChatGPT_Projects\SakhtYar\WebSite\sakhtyar-flow" />
+    <option name="INDEPENDENT_INTERPRETER_PATH" value="true" />
+    <option name="INTERPRETER_PATH" value="C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe" />
+    <option name="INTERPRETER_OPTIONS" value="-NoProfile -ExecutionPolicy Bypass" />
+    <option name="EXECUTE_IN_TERMINAL" value="false" />
+    <method v="2" />
+  </configuration>
+</component>

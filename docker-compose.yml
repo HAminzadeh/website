@@ -1,0 +1,74 @@
+services:
+  db:
+    image: mariadb:11.4
+    restart: "no"
+    environment:
+      MARIADB_DATABASE: ${DB_NAME}
+      MARIADB_USER: ${DB_USER}
+      MARIADB_PASSWORD: ${DB_PASSWORD}
+      MARIADB_ROOT_PASSWORD: ${DB_ROOT_PASSWORD}
+    volumes:
+      - db_data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "healthcheck.sh", "--connect", "--innodb_initialized"]
+      interval: 3s
+      timeout: 3s
+      retries: 30
+
+  wordpress:
+    image: wordpress:php8.3-apache
+    restart: "no"
+    depends_on:
+      db:
+        condition: service_healthy
+    ports:
+      - "${WP_PORT}:80"
+    environment:
+      WORDPRESS_DB_HOST: db:3306
+      WORDPRESS_DB_NAME: ${DB_NAME}
+      WORDPRESS_DB_USER: ${DB_USER}
+      WORDPRESS_DB_PASSWORD: ${DB_PASSWORD}
+      WORDPRESS_DEBUG: "1"
+    volumes:
+      - wordpress_data:/var/www/html
+      # LIVE SOURCE from IntelliJ:
+      - ./theme/sakhtyar-flow:/var/www/html/wp-content/themes/sakhtyar-flow
+      - ./plugins/sakhtyar-core:/var/www/html/wp-content/plugins/sakhtyar-core
+      - ./content:/var/www/html/wp-content/sakhtyar-content:ro
+
+  wpcli:
+    image: wordpress:cli
+    depends_on:
+      db:
+        condition: service_healthy
+      wordpress:
+        condition: service_started
+    environment:
+      WORDPRESS_DB_HOST: db:3306
+      WORDPRESS_DB_NAME: ${DB_NAME}
+      WORDPRESS_DB_USER: ${DB_USER}
+      WORDPRESS_DB_PASSWORD: ${DB_PASSWORD}
+    volumes:
+      - wordpress_data:/var/www/html
+      # SAME LIVE SOURCE as WordPress:
+      - ./theme/sakhtyar-flow:/var/www/html/wp-content/themes/sakhtyar-flow
+      - ./plugins/sakhtyar-core:/var/www/html/wp-content/plugins/sakhtyar-core
+      - ./content:/var/www/html/wp-content/sakhtyar-content:ro
+    working_dir: /var/www/html
+
+  phpmyadmin:
+    image: phpmyadmin:latest
+    restart: "no"
+    depends_on:
+      db:
+        condition: service_healthy
+    ports:
+      - "${PMA_PORT}:80"
+    environment:
+      PMA_HOST: db
+      PMA_USER: ${DB_USER}
+      PMA_PASSWORD: ${DB_PASSWORD}
+
+volumes:
+  db_data:
+  wordpress_data:

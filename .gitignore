@@ -1,0 +1,14 @@
+.idea/
+.env
+dist/
+*.zip
+.DS_Store
+Thumbs.db
+wordpress-data/
+db-data/
+.docker-cache/
+
+.runtime/
+node_modules/
+.runtime/
+node_modules/
