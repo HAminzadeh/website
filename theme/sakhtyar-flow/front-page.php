@@ -99,6 +99,10 @@
   </div>
 </div></section>
 
+
+<?php if (function_exists('syf_render_homepage_product_gallery')) { syf_render_homepage_product_gallery(); } ?>
+<?php if (function_exists('syf_render_homepage_roadmap')) { syf_render_homepage_roadmap(); } ?>
+
 <section class="syf-section syf-section--soft"><div class="syf-container">
   <div class="syf-section-head"><div><div class="syf-kicker">دانش ساخت</div><h2>راهنماهایی که به تصمیم عملی نزدیک می‌شوند</h2></div><a class="syf-link" href="<?php echo esc_url(home_url('/blog/')); ?>">مشاهده همه مقالات ←</a></div>
   <div class="syf-articles syf-react-articles">

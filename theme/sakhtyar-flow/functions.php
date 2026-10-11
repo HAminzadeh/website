@@ -1,7 +1,7 @@
 <?php
 if (!defined('ABSPATH')) { exit; }
 
-define('SYF_THEME_VERSION', '0.4.1');
+define('SYF_THEME_VERSION', '0.4.2');
 
 function syf_theme_setup() {
     add_theme_support('title-tag');
@@ -15,6 +15,7 @@ add_action('after_setup_theme', 'syf_theme_setup');
 
 require_once get_template_directory() . '/inc/static-pages.php';
 require_once get_template_directory() . '/inc/module-pages.php';
+require_once get_template_directory() . '/inc/ui-showcase.php';
 
 function syf_visual_themes() {
     return array(
@@ -41,6 +42,7 @@ function syf_enqueue_assets() {
     wp_enqueue_style('sakhtyar-flow-visual-theme', get_template_directory_uri().'/assets/css/themes/'.syf_current_visual_theme().'.css', array('sakhtyar-flow-static'), SYF_THEME_VERSION);
     if (syf_current_visual_theme() === 'flow') {
         wp_enqueue_style('sakhtyar-flow-react-aligned', get_template_directory_uri().'/assets/css/react-aligned.css', array('sakhtyar-flow-visual-theme'), SYF_THEME_VERSION);
+        wp_enqueue_style('sakhtyar-flow-experience-v042', get_template_directory_uri().'/assets/css/experience-v042.css', array('sakhtyar-flow-react-aligned'), SYF_THEME_VERSION);
     }
     wp_enqueue_script('sakhtyar-flow-main', get_template_directory_uri().'/assets/js/main.js', array(), SYF_THEME_VERSION, true);
 }
@@ -99,6 +101,7 @@ function syf_site_pages() {
         'financial_analysis'=>array('تحلیل مالی و سناریوی اقتصادی','financial-analysis'),
         'reports_documents'=>array('گزارش و مستندات','reports-documents'),
         'monitoring_alerts'=>array('پایش و هشدار','monitoring-alerts'),
+        'roadmap'=>array('نقشه راه محصول','roadmap'),
         'docs'=>array('مستندات و راهنما','docs'),
         'academy'=>array('آکادمی ساخت‌یار','academy'),
         'cases'=>array('نمونه‌ها و مطالعات موردی','case-studies'),

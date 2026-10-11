@@ -19,7 +19,9 @@
       <a href="<?php echo esc_url(home_url('/regulations/')); ?>">ضوابط</a>
       <a href="<?php echo esc_url(home_url('/feasibility/')); ?>">امکان‌سنجی</a>
       <a href="<?php echo esc_url(home_url('/ai-assistant/')); ?>">دستیار هوشمند</a>
-      <a href="<?php echo esc_url(home_url('/academy/')); ?>">آکادمی</a>
+      <a href="<?php echo esc_url(home_url('/roadmap/')); ?>">نقشه راه</a>
+      <a href="<?php echo esc_url(home_url('/roadmap/')); ?>">نقشه راه محصول</a>
+    <a href="<?php echo esc_url(home_url('/academy/')); ?>">آکادمی</a>
     </nav>
     <div class="syf-header-actions syf-app-actions">
       <a class="syf-btn syf-btn--ghost syf-header-login" href="<?php echo esc_url(home_url('/about/')); ?>">درباره ما</a>
@@ -41,6 +43,7 @@
     <a href="<?php echo esc_url(home_url('/owners/')); ?>">مالکان</a>
     <a href="<?php echo esc_url(home_url('/builders/')); ?>">سازندگان</a>
     <a href="<?php echo esc_url(home_url('/investors/')); ?>">سرمایه‌گذاران</a>
+    <a href="<?php echo esc_url(home_url('/roadmap/')); ?>">نقشه راه محصول</a>
     <a href="<?php echo esc_url(home_url('/academy/')); ?>">آکادمی</a>
     <a href="<?php echo esc_url(home_url('/contact/')); ?>">تماس با ما</a>
   </nav>

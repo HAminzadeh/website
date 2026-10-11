@@ -2,7 +2,10 @@
 <?php while (have_posts()) : the_post(); ?>
 <?php
 $slug = get_post_field('post_name', get_the_ID());
-if (function_exists('syf_has_module_page') && syf_has_module_page($slug)) {
+
+if (function_exists('syf_has_rich_page') && syf_has_rich_page($slug)) {
+    syf_render_rich_page($slug);
+} elseif (function_exists('syf_has_module_page') && syf_has_module_page($slug)) {
     syf_render_module_page($slug);
 } elseif (function_exists('syf_has_static_page') && syf_has_static_page($slug)) {
     syf_render_static_page($slug);

@@ -1,105 +1,109 @@
 {
-  "site": {
-    "title": "SakhtYar Flow",
-    "tagline": "پلتفرم هوشمند تحلیل، توسعه و مدیریت پروژه‌های ساختمانی",
-    "timezone": "Asia/Tehran"
-  },
-  "pages": [
-    {
-      "title": "خانه",
-      "slug": "home"
-    },
-    {
-      "title": "محصول",
-      "slug": "product"
-    },
-    {
-      "title": "قابلیت‌ها",
-      "slug": "features"
-    },
-    {
-      "title": "برای مالکان",
-      "slug": "owners"
-    },
-    {
-      "title": "برای سازندگان",
-      "slug": "builders"
-    },
-    {
-      "title": "برای سرمایه‌گذاران",
-      "slug": "investors"
-    },
-    {
-      "title": "برای مشاوران و کارشناسان",
-      "slug": "advisors"
-    },
-    {
-      "title": "هوشمندی ملک",
-      "slug": "property-intelligence"
-    },
-    {
-      "title": "هوشمندی ضوابط",
-      "slug": "regulations"
-    },
-    {
-      "title": "دستیار هوشمند ساخت‌یار",
-      "slug": "ai-assistant"
-    },
-    {
-      "title": "امکان‌سنجی و سناریوسازی",
-      "slug": "feasibility"
-    },
-    {
-      "title": "تطبیق سازنده",
-      "slug": "builder-matching"
-    },
-    {
-      "title": "تحلیل مالی و سناریوی اقتصادی",
-      "slug": "financial-analysis"
-    },
-    {
-      "title": "گزارش و مستندات",
-      "slug": "reports-documents"
-    },
-    {
-      "title": "پایش و هشدار",
-      "slug": "monitoring-alerts"
-    },
-    {
-      "title": "مستندات و راهنما",
-      "slug": "docs"
-    },
-    {
-      "title": "آکادمی ساخت‌یار",
-      "slug": "academy"
-    },
-    {
-      "title": "نمونه‌ها و مطالعات موردی",
-      "slug": "case-studies"
-    },
-    {
-      "title": "درباره ما",
-      "slug": "about"
-    },
-    {
-      "title": "سوالات متداول",
-      "slug": "faq"
-    },
-    {
-      "title": "تماس با ما",
-      "slug": "contact"
-    },
-    {
-      "title": "درخواست دمو",
-      "slug": "request-demo"
-    },
-    {
-      "title": "حریم خصوصی",
-      "slug": "privacy"
-    },
-    {
-      "title": "دانش ساخت",
-      "slug": "blog"
-    }
-  ]
+    "site":  {
+                 "title":  "SakhtYar Flow",
+                 "tagline":  "پلتفرم هوشمند تحلیل، توسعه و مدیریت پروژه‌های ساختمانی",
+                 "timezone":  "Asia/Tehran"
+             },
+    "pages":  [
+                  {
+                      "title":  "خانه",
+                      "slug":  "home"
+                  },
+                  {
+                      "title":  "محصول",
+                      "slug":  "product"
+                  },
+                  {
+                      "title":  "قابلیت‌ها",
+                      "slug":  "features"
+                  },
+                  {
+                      "title":  "برای مالکان",
+                      "slug":  "owners"
+                  },
+                  {
+                      "title":  "برای سازندگان",
+                      "slug":  "builders"
+                  },
+                  {
+                      "title":  "برای سرمایه‌گذاران",
+                      "slug":  "investors"
+                  },
+                  {
+                      "title":  "برای مشاوران و کارشناسان",
+                      "slug":  "advisors"
+                  },
+                  {
+                      "title":  "هوشمندی ملک",
+                      "slug":  "property-intelligence"
+                  },
+                  {
+                      "title":  "هوشمندی ضوابط",
+                      "slug":  "regulations"
+                  },
+                  {
+                      "title":  "دستیار هوشمند ساخت‌یار",
+                      "slug":  "ai-assistant"
+                  },
+                  {
+                      "title":  "امکان‌سنجی و سناریوسازی",
+                      "slug":  "feasibility"
+                  },
+                  {
+                      "title":  "تطبیق سازنده",
+                      "slug":  "builder-matching"
+                  },
+                  {
+                      "title":  "تحلیل مالی و سناریوی اقتصادی",
+                      "slug":  "financial-analysis"
+                  },
+                  {
+                      "title":  "گزارش و مستندات",
+                      "slug":  "reports-documents"
+                  },
+                  {
+                      "title":  "پایش و هشدار",
+                      "slug":  "monitoring-alerts"
+                  },
+                  {
+                      "title":  "مستندات و راهنما",
+                      "slug":  "docs"
+                  },
+                  {
+                      "title":  "آکادمی ساخت‌یار",
+                      "slug":  "academy"
+                  },
+                  {
+                      "title":  "نمونه‌ها و مطالعات موردی",
+                      "slug":  "case-studies"
+                  },
+                  {
+                      "title":  "درباره ما",
+                      "slug":  "about"
+                  },
+                  {
+                      "title":  "سوالات متداول",
+                      "slug":  "faq"
+                  },
+                  {
+                      "title":  "تماس با ما",
+                      "slug":  "contact"
+                  },
+                  {
+                      "title":  "درخواست دمو",
+                      "slug":  "request-demo"
+                  },
+                  {
+                      "title":  "حریم خصوصی",
+                      "slug":  "privacy"
+                  },
+                  {
+                      "title":  "دانش ساخت",
+                      "slug":  "blog"
+                  },
+                  {
+                      "title":  "نقشه راه محصول",
+                      "slug":  "roadmap"
+                  }
+              ]
 }
