@@ -34,20 +34,36 @@
       "slug": "advisors"
     },
     {
-      "title": "تحلیل هوشمند ملک",
+      "title": "هوشمندی ملک",
       "slug": "property-intelligence"
     },
     {
-      "title": "قوانین و ضوابط",
+      "title": "هوشمندی ضوابط",
       "slug": "regulations"
     },
     {
-      "title": "دستیار هوشمند",
+      "title": "دستیار هوشمند ساخت‌یار",
       "slug": "ai-assistant"
     },
     {
       "title": "امکان‌سنجی و سناریوسازی",
       "slug": "feasibility"
+    },
+    {
+      "title": "تطبیق سازنده",
+      "slug": "builder-matching"
+    },
+    {
+      "title": "تحلیل مالی و سناریوی اقتصادی",
+      "slug": "financial-analysis"
+    },
+    {
+      "title": "گزارش و مستندات",
+      "slug": "reports-documents"
+    },
+    {
+      "title": "پایش و هشدار",
+      "slug": "monitoring-alerts"
     },
     {
       "title": "مستندات و راهنما",
