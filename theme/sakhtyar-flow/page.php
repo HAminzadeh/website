@@ -10,12 +10,12 @@ if (in_array($slug, array('account','market-analytics'), true)) {
       <div class="syf-container syf-v050-tool-hero__grid">
         <div>
           <div class="syf-kicker"><?php echo $is_account ? 'حساب و دسترسی' : 'تحلیل داده‌محور'; ?></div>
-          <h1><?php echo $is_account ? 'حساب کاربری ساخت‌یار' : 'تحلیل بازار و منطقه'; ?></h1>
+          <h1><?php echo $is_account ? 'حساب کاربری' : 'تحلیل بازار و منطقه'; ?></h1>
           <p><?php echo $is_account
               ? 'ورود، ساخت حساب و سطح دسترسی شما به مقالات، جزئیات ماژول‌ها و ابزارهای تحلیلی از اینجا مدیریت می‌شود.'
               : 'روندهای منطقه‌ای، تازگی داده، سیگنال‌های قیمت و خروجی خزنده‌ها در این صفحه به داده Backend متصل می‌شوند.'; ?></p>
         </div>
-        <div class="syf-v050-tool-hero__badge"><?php echo $is_account ? 'Access Center' : 'Market Intelligence'; ?></div>
+        <div class="syf-v050-tool-hero__badge"><?php echo $is_account ? 'مرکز حساب و دسترسی' : 'Market Intelligence'; ?></div>
       </div>
     </section>
     <main class="syf-container syf-v050-tool-main"><article class="syf-content"><?php the_content(); ?></article></main>

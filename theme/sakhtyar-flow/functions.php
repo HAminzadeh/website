@@ -1,7 +1,7 @@
 <?php
 if (!defined('ABSPATH')) { exit; }
 
-define('SYF_THEME_VERSION', '0.5.0');
+define('SYF_THEME_VERSION', '0.6.1');
 
 function syf_theme_setup() {
     add_theme_support('title-tag');
@@ -46,6 +46,7 @@ function syf_enqueue_assets() {
         wp_enqueue_style('sakhtyar-flow-experience-v042', get_template_directory_uri().'/assets/css/experience-v042.css', array('sakhtyar-flow-react-aligned'), SYF_THEME_VERSION);
         wp_enqueue_style('sakhtyar-flow-experience-v043', get_template_directory_uri().'/assets/css/experience-v043.css', array('sakhtyar-flow-experience-v042'), SYF_THEME_VERSION);
         wp_enqueue_style('sakhtyar-flow-experience-v050', get_template_directory_uri().'/assets/css/experience-v050.css', array('sakhtyar-flow-react-aligned'), SYF_THEME_VERSION);
+        wp_enqueue_style('sakhtyar-layout-v061', get_template_directory_uri().'/assets/css/layout-v061.css', array('sakhtyar-flow-experience-v050'), SYF_THEME_VERSION);
     }
     wp_enqueue_script('sakhtyar-flow-main', get_template_directory_uri().'/assets/js/main.js', array(), SYF_THEME_VERSION, true);
 }
@@ -120,12 +121,6 @@ function syf_site_pages() {
 }
 
 function syf_bootstrap_site() {
-    update_option('blogname', 'SakhtYar Flow');
-    update_option('blogdescription', 'پلتفرم هوشمند تحلیل، توسعه و مدیریت پروژه‌های ساختمانی');
-    update_option('timezone_string', 'Asia/Tehran');
-    update_option('start_of_week', 6);
-    update_option('permalink_structure', '/%postname%/');
-    update_option('blog_public', '0');
 
     $ids = array();
     foreach (syf_site_pages() as $key=>$def) {

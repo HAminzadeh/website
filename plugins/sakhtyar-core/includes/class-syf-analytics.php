@@ -31,38 +31,55 @@ final class SYF_Core_Analytics {
             return new WP_REST_Response($live, 200);
         }
 
-        $demo = self::demo_payload($region, $period);
-        $demo['source'] = 'demo';
-        return new WP_REST_Response($demo, 200);
+        if (
+            defined('WP_DEBUG') && WP_DEBUG &&
+            defined('SAKHTYAR_ENABLE_DEMO_ANALYTICS') &&
+            SAKHTYAR_ENABLE_DEMO_ANALYTICS
+        ) {
+            $demo = self::demo_payload($region, $period);
+            $demo['source'] = 'demo';
+            return new WP_REST_Response($demo, 200);
+        }
+
+        return new WP_REST_Response([
+            'source' => 'unavailable',
+            'code' => 'analytics_unavailable',
+            'message' => 'اطلاعات زنده در دسترس نیست.'
+        ], 503);
     }
 
     private static function fetch_live(string $region, string $period): ?array {
-        $base = trim((string)get_option('syf_backend_base_url', ''));
-        if ($base === '') return null;
+        $path = (string) get_option(
+            'syf_backend_analytics_path',
+            '/api/v1/analytics/market'
+        );
 
-        $path = trim((string)get_option('syf_backend_analytics_path', '/api/v1/analytics/market'));
-        if ($path === '') $path = '/api/v1/analytics/market';
+        $result = SYF_Core_Backend::request(
+            'GET',
+            $path,
+            null,
+            [
+                'region' => $region,
+                'period' => $period
+            ]
+        );
 
-        $url = untrailingslashit($base) . '/' . ltrim($path, '/');
-        $url = add_query_arg(['region' => $region, 'period' => $period], $url);
-
-        $headers = ['Accept' => 'application/json'];
-        $token = trim((string)get_option('syf_backend_api_token', ''));
-        if ($token !== '') {
-            $headers['Authorization'] = 'Bearer ' . $token;
+        if (is_wp_error($result) || !is_array($result)) {
+            return null;
         }
 
-        $response = wp_remote_get($url, [
-            'timeout' => 8,
-            'headers' => $headers,
-        ]);
-        if (is_wp_error($response)) return null;
-        if ((int)wp_remote_retrieve_response_code($response) !== 200) return null;
+        if (
+            !isset(
+                $result['metrics'],
+                $result['price_series'],
+                $result['segments'],
+                $result['signals']
+            )
+        ) {
+            return null;
+        }
 
-        $body = json_decode((string)wp_remote_retrieve_body($response), true);
-        if (!is_array($body)) return null;
-
-        return $body;
+        return $result;
     }
 
     private static function demo_payload(string $region, string $period): array {

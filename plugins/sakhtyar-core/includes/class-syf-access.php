@@ -258,6 +258,75 @@ final class SYF_Core_Access {
               <?php endforeach; ?>
             </div>
 
+            <!-- SYF_ACCOUNT_RELEASE_V061 -->
+            <?php if (current_user_can('syf_export_packages')) :
+                $syf_release_theme = wp_get_theme('sakhtyar-flow');
+                $syf_theme_ver = $syf_release_theme->exists()
+                    ? $syf_release_theme->get('Version')
+                    : 'نامشخص';
+            ?>
+
+            <section class="syf-release-account"
+                     aria-labelledby="syf-release-title">
+
+              <h2 id="syf-release-title">
+                مرکز دریافت قالب و افزونه
+              </h2>
+
+              <p>
+                ویژه مدیر سایت — بسته‌های نصب وردپرس را
+                با نسخه فعلی دریافت کنید.
+                قبل از جایگزینی روی هاست اصلی بکاپ بگیرید.
+              </p>
+
+              <div class="syf-release-account__grid">
+
+                <article class="syf-release-account__item">
+
+                  <strong>قالب SakhtYar Flow</strong>
+
+                  <small>
+                    نسخه:
+                    <?php echo esc_html((string)$syf_theme_ver); ?>
+                  </small>
+
+                  <a class="syf-btn syf-btn--primary"
+                     href="<?php echo esc_url(
+                         wp_nonce_url(
+                             admin_url('admin-post.php?action=syf_export_theme'),
+                             'syf_export_theme'
+                         )
+                     ); ?>">
+                    دریافت فایل قالب ZIP
+                  </a>
+
+                </article>
+
+                <article class="syf-release-account__item">
+
+                  <strong>افزونه SakhtYar Core</strong>
+
+                  <small>
+                    نسخه:
+                    <?php echo esc_html(SYF_CORE_VERSION); ?>
+                  </small>
+
+                  <a class="syf-btn syf-btn--outline"
+                     href="<?php echo esc_url(
+                         wp_nonce_url(
+                             admin_url('admin-post.php?action=syf_export_plugin'),
+                             'syf_export_plugin'
+                         )
+                     ); ?>">
+                    دریافت فایل افزونه ZIP
+                  </a>
+
+                </article>
+
+              </div>
+            </section>
+
+            <?php endif; ?>
             <div class="syf-core-account-actions">
               <?php if (current_user_can('syf_view_analytics')) : ?>
                 <a class="syf-btn syf-btn--primary" href="<?php echo esc_url(home_url('/market-analytics/')); ?>">ورود به تحلیل بازار</a>

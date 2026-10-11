@@ -7,48 +7,87 @@
 </head>
 <body <?php body_class(); ?>>
 <?php wp_body_open(); ?>
+
 <header class="syf-header syf-app-header">
-  <div class="syf-container syf-header__inner">
-    <a class="syf-brand syf-app-brand" href="<?php echo esc_url(home_url('/')); ?>">
-      <span class="syf-brand__mark"><img src="<?php echo esc_url(get_template_directory_uri().'/assets/images/react/sakhtyar-mark.svg'); ?>" alt="" width="48" height="48"></span>
-      <span class="syf-brand__text"><strong>ساخت‌یار</strong><span>مدیریت هوشمند مشارکت در ساخت</span></span>
-    </a>
-    <nav class="syf-desktop-nav syf-app-nav" aria-label="منوی اصلی">
-      <a href="<?php echo esc_url(home_url('/product/')); ?>">پلتفرم</a>
-      <a href="<?php echo esc_url(home_url('/property-intelligence/')); ?>">هوشمندی ملک</a>
-      <a href="<?php echo esc_url(home_url('/regulations/')); ?>">ضوابط</a>
-      <a href="<?php echo esc_url(home_url('/feasibility/')); ?>">امکان‌سنجی</a>
-      <a href="<?php echo esc_url(home_url('/ai-assistant/')); ?>">دستیار هوشمند</a>
-    <a href="<?php echo esc_url(home_url('/market-analytics/')); ?>">تحلیل بازار و منطقه</a>
-      <a href="<?php echo esc_url(home_url('/market-analytics/')); ?>">تحلیل بازار</a>
-      <a href="<?php echo esc_url(home_url('/roadmap/')); ?>">نقشه راه</a>
-      <a href="<?php echo esc_url(home_url('/roadmap/')); ?>">نقشه راه محصول</a>
-    <a href="<?php echo esc_url(home_url('/academy/')); ?>">آکادمی</a>
-    </nav>
-    <div class="syf-header-actions syf-app-actions">
-      <a class="syf-btn syf-btn--ghost syf-header-login syf-account-link" href="<?php echo esc_url(home_url('/account/')); ?>"><?php echo is_user_logged_in() ? 'حساب من' : 'ورود / عضویت'; ?></a>
-      <a class="syf-btn syf-btn--primary" href="<?php echo esc_url(home_url('/request-demo/')); ?>">درخواست دمو</a>
-      <button class="syf-mobile-toggle" type="button" aria-expanded="false" aria-controls="syf-mobile-nav" aria-label="باز کردن منو">☰</button>
-    </div>
-  </div>
-  <nav id="syf-mobile-nav" class="syf-mobile-nav" aria-label="منوی موبایل">
-    <a href="<?php echo esc_url(home_url('/product/')); ?>">پلتفرم</a>
-    <a href="<?php echo esc_url(home_url('/features/')); ?>">قابلیت‌ها</a>
-    <a href="<?php echo esc_url(home_url('/property-intelligence/')); ?>">هوشمندی ملک</a>
-    <a href="<?php echo esc_url(home_url('/regulations/')); ?>">هوشمندی ضوابط</a>
-    <a href="<?php echo esc_url(home_url('/feasibility/')); ?>">امکان‌سنجی و سناریوسازی</a>
-    <a href="<?php echo esc_url(home_url('/financial-analysis/')); ?>">تحلیل مالی</a>
-    <a href="<?php echo esc_url(home_url('/ai-assistant/')); ?>">دستیار هوشمند</a>
-    <a href="<?php echo esc_url(home_url('/market-analytics/')); ?>">تحلیل بازار و منطقه</a>
-    <a href="<?php echo esc_url(home_url('/builder-matching/')); ?>">تطبیق سازنده</a>
-    <a href="<?php echo esc_url(home_url('/reports-documents/')); ?>">گزارش و مستندات</a>
-    <a href="<?php echo esc_url(home_url('/monitoring-alerts/')); ?>">پایش و هشدار</a>
-    <a href="<?php echo esc_url(home_url('/owners/')); ?>">مالکان</a>
-    <a href="<?php echo esc_url(home_url('/builders/')); ?>">سازندگان</a>
-    <a href="<?php echo esc_url(home_url('/investors/')); ?>">سرمایه‌گذاران</a>
-    <a href="<?php echo esc_url(home_url('/roadmap/')); ?>">نقشه راه محصول</a>
-    <a href="<?php echo esc_url(home_url('/academy/')); ?>">آکادمی</a>
-    <a href="<?php echo esc_url(home_url('/account/')); ?>">حساب کاربری</a>
-    <a href="<?php echo esc_url(home_url('/contact/')); ?>">تماس با ما</a>
-  </nav>
+<div class="syf-container syf-header__inner">
+
+<a class="syf-brand syf-app-brand"
+   href="<?php echo esc_url(home_url('/')); ?>"
+   aria-label="صفحه اصلی ساخت‌یار">
+
+<span class="syf-brand__mark">
+<img src="<?php echo esc_url(get_template_directory_uri().'/assets/images/react/sakhtyar-mark.svg'); ?>"
+     alt="" width="48" height="48">
+</span>
+
+<span class="syf-brand__text">
+<strong>ساخت‌یار</strong>
+<span>مدیریت هوشمند مشارکت در ساخت</span>
+</span>
+</a>
+
+<nav class="syf-desktop-nav syf-app-nav" aria-label="منوی اصلی">
+
+<a href="<?php echo esc_url(home_url('/product/')); ?>">پلتفرم</a>
+
+<a href="<?php echo esc_url(home_url('/property-intelligence/')); ?>">هوشمندی ملک</a>
+
+<a href="<?php echo esc_url(home_url('/regulations/')); ?>">ضوابط</a>
+
+<a href="<?php echo esc_url(home_url('/market-analytics/')); ?>">تحلیل بازار</a>
+
+<a href="<?php echo esc_url(home_url('/academy/')); ?>">آکادمی</a>
+
+<details class="syf-nav-more">
+<summary>سایر امکانات</summary>
+
+<div class="syf-nav-more__items">
+<a href="<?php echo esc_url(home_url('/feasibility/')); ?>">امکان‌سنجی</a>
+<a href="<?php echo esc_url(home_url('/ai-assistant/')); ?>">دستیار هوشمند</a>
+<a href="<?php echo esc_url(home_url('/financial-analysis/')); ?>">تحلیل مالی</a>
+<a href="<?php echo esc_url(home_url('/builder-matching/')); ?>">تطبیق سازنده</a>
+<a href="<?php echo esc_url(home_url('/roadmap/')); ?>">نقشه راه</a>
+</div>
+
+</details>
+</nav>
+
+<div class="syf-header-actions syf-app-actions">
+
+<a class="syf-btn syf-btn--ghost syf-header-login syf-account-link"
+   href="<?php echo esc_url(home_url('/account/')); ?>">
+<?php echo is_user_logged_in() ? 'حساب من' : 'ورود / عضویت'; ?>
+</a>
+
+<a class="syf-btn syf-btn--primary"
+   href="<?php echo esc_url(home_url('/request-demo/')); ?>">
+درخواست دمو
+</a>
+
+<button class="syf-mobile-toggle"
+        type="button"
+        aria-expanded="false"
+        aria-controls="syf-mobile-nav"
+        aria-label="باز کردن منو">☰</button>
+</div>
+</div>
+
+<nav id="syf-mobile-nav"
+     class="syf-mobile-nav"
+     aria-label="منوی موبایل">
+
+<a href="<?php echo esc_url(home_url('/product/')); ?>">پلتفرم</a>
+<a href="<?php echo esc_url(home_url('/property-intelligence/')); ?>">هوشمندی ملک</a>
+<a href="<?php echo esc_url(home_url('/regulations/')); ?>">ضوابط</a>
+<a href="<?php echo esc_url(home_url('/feasibility/')); ?>">امکان‌سنجی</a>
+<a href="<?php echo esc_url(home_url('/ai-assistant/')); ?>">دستیار هوشمند</a>
+<a href="<?php echo esc_url(home_url('/financial-analysis/')); ?>">تحلیل مالی</a>
+<a href="<?php echo esc_url(home_url('/market-analytics/')); ?>">تحلیل بازار</a>
+<a href="<?php echo esc_url(home_url('/builder-matching/')); ?>">تطبیق سازنده</a>
+<a href="<?php echo esc_url(home_url('/roadmap/')); ?>">نقشه راه</a>
+<a href="<?php echo esc_url(home_url('/academy/')); ?>">آکادمی</a>
+<a href="<?php echo esc_url(home_url('/account/')); ?>">حساب من</a>
+<a href="<?php echo esc_url(home_url('/contact/')); ?>">تماس با ما</a>
+
+</nav>
 </header>
