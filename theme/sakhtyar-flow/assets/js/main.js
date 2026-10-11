@@ -1,23 +1,24 @@
-document.addEventListener('DOMContentLoaded', function () {
-  const toggle = document.querySelector('.syf-mobile-toggle');
-  const nav = document.querySelector('.syf-nav');
-  if (!toggle || !nav) return;
+document.addEventListener('DOMContentLoaded',function(){
+  var toggle=document.querySelector('.syf-mobile-toggle');
+  var mobile=document.getElementById('syf-mobile-nav');
+  if(toggle&&mobile){toggle.addEventListener('click',function(){
+    var open=mobile.classList.toggle('is-open');
+    toggle.setAttribute('aria-expanded',open?'true':'false');
+    toggle.textContent=open?'×':'☰';
+  });}
 
-  toggle.addEventListener('click', function () {
-    const isOpen = nav.style.display === 'flex';
-    nav.style.display = isOpen ? 'none' : 'flex';
-    if (!isOpen) {
-      nav.style.position = 'absolute';
-      nav.style.top = '72px';
-      nav.style.right = '4vw';
-      nav.style.left = '4vw';
-      nav.style.flexDirection = 'column';
-      nav.style.alignItems = 'stretch';
-      nav.style.padding = '14px';
-      nav.style.background = '#0b1628';
-      nav.style.border = '1px solid rgba(255,255,255,.08)';
-      nav.style.borderRadius = '16px';
-      nav.style.boxShadow = '0 20px 50px rgba(0,0,0,.25)';
-    }
+  document.querySelectorAll('[data-syf-static-form]').forEach(function(form){
+    form.addEventListener('submit',function(event){
+      event.preventDefault();
+      var message=form.querySelector('[data-syf-form-message]');
+      if(message) message.textContent='فرم نمایشی است؛ اتصال به backend در فاز بعدی فعال می‌شود.';
+    });
+  });
+
+  document.querySelectorAll('.syf-faq').forEach(function(item){
+    item.addEventListener('toggle',function(){
+      var marker=item.querySelector('summary span');
+      if(marker) marker.textContent=item.open?'−':'+';
+    });
   });
 });

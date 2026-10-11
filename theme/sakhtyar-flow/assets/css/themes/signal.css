@@ -1,0 +1,5 @@
+:root{--syf-bg:#16152f;--syf-bg-2:#211f45;--syf-primary:#6d4aff;--syf-primary-2:#8b5cf6;--syf-accent:#06b6d4;--syf-gold:#f59e0b;--syf-surface-soft:#f8f9ff}
+.syf-theme-signal .syf-header{background:rgba(22,21,47,.91)}
+.syf-theme-signal .syf-static-hero,.syf-theme-signal .syf-hero{background:radial-gradient(circle at 75% 25%,rgba(109,74,255,.32),transparent 32%),radial-gradient(circle at 18% 76%,rgba(6,182,212,.14),transparent 28%),linear-gradient(180deg,#16152f,#211f45)}
+.syf-theme-signal .syf-btn--primary{background:linear-gradient(135deg,#6d4aff,#06b6d4)}
+.syf-theme-signal .syf-module-card__tag{background:#f1edff;color:#6d4aff}

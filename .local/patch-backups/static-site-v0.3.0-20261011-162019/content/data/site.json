@@ -1,0 +1,23 @@
+{
+  "site": {
+    "title": "SakhtYar Flow",
+    "tagline": "پلتفرم هوشمند تحلیل، توسعه و مدیریت پروژه‌های ساختمانی",
+    "timezone": "Asia/Tehran"
+  },
+  "pages": [
+    {"title":"خانه","slug":"home"},
+    {"title":"محصول","slug":"product"},
+    {"title":"قابلیت‌ها","slug":"features"},
+    {"title":"برای مالکان","slug":"owners"},
+    {"title":"برای سازندگان","slug":"builders"},
+    {"title":"برای سرمایه‌گذاران","slug":"investors"},
+    {"title":"تحلیل هوشمند ملک","slug":"property-intelligence"},
+    {"title":"قوانین و ضوابط","slug":"regulations"},
+    {"title":"دستیار هوشمند","slug":"ai-assistant"},
+    {"title":"آکادمی ساخت‌یار","slug":"academy"},
+    {"title":"دانش ساخت","slug":"blog"},
+    {"title":"درباره ما","slug":"about"},
+    {"title":"تماس با ما","slug":"contact"},
+    {"title":"درخواست دمو","slug":"request-demo"}
+  ]
+}

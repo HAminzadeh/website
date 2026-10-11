@@ -1,21 +1,17 @@
 <?php get_header(); ?>
-<section class="syf-page-hero">
-  <div class="syf-container">
-    <div class="syf-kicker">SakhtYar Flow</div>
-    <h1><?php the_title(); ?></h1>
-    <p>این صفحه بخشی از پلتفرم و مرکز دانش SakhtYar Flow است و در نسخه‌های بعدی با محتوای تخصصی و داده‌های واقعی تکمیل می‌شود.</p>
-  </div>
-</section>
-<main class="syf-container">
 <?php while (have_posts()) : the_post(); ?>
-  <article class="syf-content">
-    <?php if (trim(get_the_content())): ?>
-      <?php the_content(); ?>
-    <?php else: ?>
-      <h2>این بخش در حال تکمیل است</h2>
-      <p>ساختار و طراحی اصلی این صفحه آماده شده و محتوای تخصصی آن در مرحله بعدی بر اساس مستندات پروژه، داده‌های واقعی و نیاز هر گروه کاربری اضافه خواهد شد.</p>
-    <?php endif; ?>
-  </article>
+<?php
+$slug = get_post_field('post_name', get_the_ID());
+if (function_exists('syf_has_static_page') && syf_has_static_page($slug)) {
+    syf_render_static_page($slug);
+} else {
+?>
+<section class="syf-page-hero"><div class="syf-container">
+  <div class="syf-kicker">SakhtYar Flow</div>
+  <h1><?php the_title(); ?></h1>
+  <p><?php echo esc_html(get_the_excerpt() ?: 'بخشی از پلتفرم و مرکز دانش SakhtYar Flow.'); ?></p>
+</div></section>
+<main class="syf-container"><article class="syf-content"><?php the_content(); ?></article></main>
+<?php } ?>
 <?php endwhile; ?>
-</main>
 <?php get_footer(); ?>

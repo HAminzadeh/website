@@ -1,0 +1,7 @@
+:root{--syf-bg:#17201b;--syf-bg-2:#243128;--syf-primary:#166534;--syf-primary-2:#15803d;--syf-accent:#d97706;--syf-gold:#b45309;--syf-surface-soft:#f6f3ed}
+.syf-theme-studio .syf-header{background:rgba(24,31,27,.94)}
+.syf-theme-studio .syf-static-hero,.syf-theme-studio .syf-hero{background:radial-gradient(circle at 78% 10%,rgba(217,119,6,.16),transparent 28%),linear-gradient(135deg,#17201b,#2b352e)}
+.syf-theme-studio .syf-module-card,.syf-theme-studio .syf-persona,.syf-theme-studio .syf-static-form{border-radius:6px;box-shadow:none}
+.syf-theme-studio .syf-btn{border-radius:6px}
+.syf-theme-studio .syf-kicker{color:#a16207}
+.syf-theme-studio .syf-module-card__tag{background:#ecf4ed;color:#166534}

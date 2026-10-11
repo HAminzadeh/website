@@ -1,0 +1,7 @@
+:root{--syf-bg:#17191b;--syf-bg-2:#25282b;--syf-primary:#e65f14;--syf-primary-2:#f97316;--syf-accent:#f59e0b;--syf-gold:#fbbf24;--syf-surface-soft:#f5f5f3}
+.syf-theme-forge .syf-header{background:rgba(23,25,27,.94)}
+.syf-theme-forge .syf-static-hero,.syf-theme-forge .syf-hero{background:linear-gradient(115deg,#17191b,#2e3032)}
+.syf-theme-forge .syf-btn{border-radius:4px}
+.syf-theme-forge .syf-module-card,.syf-theme-forge .syf-persona,.syf-theme-forge .syf-process article{border-radius:8px}
+.syf-theme-forge .syf-module-card__tag{background:#fff1e8;color:#c2410c}
+.syf-theme-forge .syf-brand__mark{border-radius:4px;background:linear-gradient(135deg,#e65f14,#f59e0b)}

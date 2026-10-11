@@ -1,5 +1,5 @@
 <!doctype html>
-<html <?php language_attributes(); ?>>
+<html <?php language_attributes(); ?> dir="rtl">
 <head>
 <meta charset="<?php bloginfo('charset'); ?>">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -10,13 +10,11 @@
 
 <div class="syf-topbar">
   <div class="syf-container">
-    <div class="syf-topbar__right">
-      <span><i class="syf-dot"></i> پلتفرم هوشمند تصمیم‌سازی و توسعه ملک</span>
-    </div>
+    <div class="syf-topbar__right"><span class="syf-dot"></span><span>تصمیم‌گیری داده‌محور برای توسعه ملک و ساخت‌وساز</span></div>
     <div class="syf-topbar__left">
-      <span>آکادمی ساخت‌یار</span>
-      <span>مستندات</span>
-      <span>پشتیبانی</span>
+      <a href="<?php echo esc_url(home_url('/docs/')); ?>">راهنما</a>
+      <a href="<?php echo esc_url(home_url('/academy/')); ?>">آکادمی</a>
+      <a href="<?php echo esc_url(home_url('/contact/')); ?>">تماس</a>
     </div>
   </div>
 </div>
@@ -25,29 +23,37 @@
   <div class="syf-container syf-header__inner">
     <a class="syf-brand" href="<?php echo esc_url(home_url('/')); ?>">
       <span class="syf-brand__mark"></span>
-      <span class="syf-brand__text">
-        <strong>SakhtYar Flow</strong>
-        <span>Property Intelligence → Project Execution</span>
-      </span>
+      <span class="syf-brand__text"><strong>SakhtYar Flow</strong><span>Property × Construction Intelligence</span></span>
     </a>
 
     <div class="syf-nav-wrap">
-      <button class="syf-mobile-toggle" type="button" aria-label="باز کردن منو">☰</button>
-      <nav aria-label="منوی اصلی">
-        <?php
-        wp_nav_menu(array(
-          'theme_location' => 'primary',
-          'container' => false,
-          'menu_class' => 'syf-nav',
-          'fallback_cb' => 'syf_nav_fallback',
-        ));
-        ?>
+      <nav class="syf-desktop-nav">
+        <a href="<?php echo esc_url(home_url('/product/')); ?>">پلتفرم</a>
+        <a href="<?php echo esc_url(home_url('/features/')); ?>">قابلیت‌ها</a>
+        <a href="<?php echo esc_url(home_url('/property-intelligence/')); ?>">تحلیل ملک</a>
+        <a href="<?php echo esc_url(home_url('/regulations/')); ?>">ضوابط</a>
+        <a href="<?php echo esc_url(home_url('/feasibility/')); ?>">امکان‌سنجی</a>
+        <a href="<?php echo esc_url(home_url('/academy/')); ?>">دانش ساخت</a>
       </nav>
-    </div>
 
-    <div class="syf-header-actions">
-      <a class="syf-btn syf-btn--ghost" href="<?php echo esc_url(home_url('/docs/')); ?>">مستندات</a>
-      <a class="syf-btn syf-btn--primary" href="<?php echo esc_url(home_url('/request-demo/')); ?>">درخواست دمو</a>
+      <div class="syf-header-actions">
+        <a class="syf-btn syf-btn--ghost syf-header-login" href="<?php echo esc_url(home_url('/about/')); ?>">درباره ما</a>
+        <a class="syf-btn syf-btn--primary" href="<?php echo esc_url(home_url('/request-demo/')); ?>">درخواست دمو</a>
+        <button class="syf-mobile-toggle" type="button" aria-expanded="false" aria-controls="syf-mobile-nav">☰</button>
+      </div>
     </div>
   </div>
+
+  <nav id="syf-mobile-nav" class="syf-mobile-nav">
+    <a href="<?php echo esc_url(home_url('/product/')); ?>">پلتفرم</a>
+    <a href="<?php echo esc_url(home_url('/features/')); ?>">قابلیت‌ها</a>
+    <a href="<?php echo esc_url(home_url('/owners/')); ?>">مالکان</a>
+    <a href="<?php echo esc_url(home_url('/builders/')); ?>">سازندگان</a>
+    <a href="<?php echo esc_url(home_url('/investors/')); ?>">سرمایه‌گذاران</a>
+    <a href="<?php echo esc_url(home_url('/property-intelligence/')); ?>">تحلیل ملک</a>
+    <a href="<?php echo esc_url(home_url('/regulations/')); ?>">قوانین و ضوابط</a>
+    <a href="<?php echo esc_url(home_url('/ai-assistant/')); ?>">دستیار هوشمند</a>
+    <a href="<?php echo esc_url(home_url('/academy/')); ?>">آکادمی</a>
+    <a href="<?php echo esc_url(home_url('/contact/')); ?>">تماس با ما</a>
+  </nav>
 </header>

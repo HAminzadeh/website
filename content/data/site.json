@@ -5,19 +5,85 @@
     "timezone": "Asia/Tehran"
   },
   "pages": [
-    {"title":"خانه","slug":"home"},
-    {"title":"محصول","slug":"product"},
-    {"title":"قابلیت‌ها","slug":"features"},
-    {"title":"برای مالکان","slug":"owners"},
-    {"title":"برای سازندگان","slug":"builders"},
-    {"title":"برای سرمایه‌گذاران","slug":"investors"},
-    {"title":"تحلیل هوشمند ملک","slug":"property-intelligence"},
-    {"title":"قوانین و ضوابط","slug":"regulations"},
-    {"title":"دستیار هوشمند","slug":"ai-assistant"},
-    {"title":"آکادمی ساخت‌یار","slug":"academy"},
-    {"title":"دانش ساخت","slug":"blog"},
-    {"title":"درباره ما","slug":"about"},
-    {"title":"تماس با ما","slug":"contact"},
-    {"title":"درخواست دمو","slug":"request-demo"}
+    {
+      "title": "خانه",
+      "slug": "home"
+    },
+    {
+      "title": "محصول",
+      "slug": "product"
+    },
+    {
+      "title": "قابلیت‌ها",
+      "slug": "features"
+    },
+    {
+      "title": "برای مالکان",
+      "slug": "owners"
+    },
+    {
+      "title": "برای سازندگان",
+      "slug": "builders"
+    },
+    {
+      "title": "برای سرمایه‌گذاران",
+      "slug": "investors"
+    },
+    {
+      "title": "برای مشاوران و کارشناسان",
+      "slug": "advisors"
+    },
+    {
+      "title": "تحلیل هوشمند ملک",
+      "slug": "property-intelligence"
+    },
+    {
+      "title": "قوانین و ضوابط",
+      "slug": "regulations"
+    },
+    {
+      "title": "دستیار هوشمند",
+      "slug": "ai-assistant"
+    },
+    {
+      "title": "امکان‌سنجی و سناریوسازی",
+      "slug": "feasibility"
+    },
+    {
+      "title": "مستندات و راهنما",
+      "slug": "docs"
+    },
+    {
+      "title": "آکادمی ساخت‌یار",
+      "slug": "academy"
+    },
+    {
+      "title": "نمونه‌ها و مطالعات موردی",
+      "slug": "case-studies"
+    },
+    {
+      "title": "درباره ما",
+      "slug": "about"
+    },
+    {
+      "title": "سوالات متداول",
+      "slug": "faq"
+    },
+    {
+      "title": "تماس با ما",
+      "slug": "contact"
+    },
+    {
+      "title": "درخواست دمو",
+      "slug": "request-demo"
+    },
+    {
+      "title": "حریم خصوصی",
+      "slug": "privacy"
+    },
+    {
+      "title": "دانش ساخت",
+      "slug": "blog"
+    }
   ]
 }
