@@ -12,3 +12,5 @@ db-data/
 node_modules/
 .runtime/
 node_modules/
+# Local/generated artifacts
+.local/
