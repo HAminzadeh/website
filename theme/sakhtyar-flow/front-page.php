@@ -3,7 +3,7 @@
 <section class="syf-react-hero-section syf-react-hero-section--v41">
   <div class="syf-container">
     <div class="syf-react-split-hero syf-react-split-hero--v41">
-      <div class="syf-react-hero-media syf-react-hero-media--hq" style="background-image:url('<?php echo esc_url(get_template_directory_uri().'/assets/images/react/hero-home-hq.png'); ?>')">
+      <div class="syf-react-hero-media syf-react-hero-media--hq" style="background-image:url('<?php echo esc_url(get_template_directory_uri().'/assets/images/react/hero-home-v043.jpg'); ?>')">
         <div class="syf-hero-media-shade"></div>
         <div class="syf-hero-floating-panel" aria-label="نمونه خروجی ساخت‌یار">
           <div class="syf-hero-floating-head"><span>نمونه جریان تحلیل</span><b>ساخت‌یار</b></div>
@@ -103,14 +103,9 @@
 <?php if (function_exists('syf_render_homepage_product_gallery')) { syf_render_homepage_product_gallery(); } ?>
 <?php if (function_exists('syf_render_homepage_roadmap')) { syf_render_homepage_roadmap(); } ?>
 
-<section class="syf-section syf-section--soft"><div class="syf-container">
-  <div class="syf-section-head"><div><div class="syf-kicker">دانش ساخت</div><h2>راهنماهایی که به تصمیم عملی نزدیک می‌شوند</h2></div><a class="syf-link" href="<?php echo esc_url(home_url('/blog/')); ?>">مشاهده همه مقالات ←</a></div>
-  <div class="syf-articles syf-react-articles">
-    <article class="syf-article"><div class="syf-article__media"><img src="<?php echo esc_url(get_template_directory_uri().'/assets/images/react/project-01.jpg'); ?>" alt="" loading="lazy"></div><div class="syf-article__body"><span class="syf-tag">مشارکت در ساخت</span><h3>از کجا بفهمیم مشارکت در ساخت برای یک ملک منطقی است؟</h3><p>یک چارچوب مرحله‌به‌مرحله برای ارزیابی اولیه پیش از مذاکره.</p></div></article>
-    <article class="syf-article"><div class="syf-article__media"><img src="<?php echo esc_url(get_template_directory_uri().'/assets/images/react/project-02.jpg'); ?>" alt="" loading="lazy"></div><div class="syf-article__body"><span class="syf-tag">قوانین و ضوابط</span><h3>ضوابط شهرسازی چگونه ظرفیت و ارزش پروژه را تغییر می‌دهند؟</h3><p>مرور پارامترهایی که می‌توانند مسیر توسعه یک ملک را عوض کنند.</p></div></article>
-    <article class="syf-article"><div class="syf-article__media"><img src="<?php echo esc_url(get_template_directory_uri().'/assets/images/react/project-03.jpg'); ?>" alt="" loading="lazy"></div><div class="syf-article__body"><span class="syf-tag">تحلیل مالی</span><h3>سهم مالک و سازنده فقط یک درصد نیست</h3><p>نگاهی به هزینه، زمان، ارزش زمین و ریسک در مدل اقتصادی مشارکت.</p></div></article>
-  </div>
-</div></section>
+<?php if (function_exists('syf_core_render_analytics_promo')) { syf_core_render_analytics_promo(); } ?>
+
+<?php if (function_exists('syf_render_home_articles')) { syf_render_home_articles(); } ?>
 
 <section class="syf-section syf-section--white"><div class="syf-container"><div class="syf-cta syf-react-cta">
   <div><h2>می‌خواهید جریان کامل را روی یک سناریوی واقعی ببینید؟</h2><p>درخواست دمو ثبت کنید تا مسیر شناخت ملک، ضابطه، سناریو و خروجی تصمیم را قدم‌به‌قدم ببینید.</p></div>

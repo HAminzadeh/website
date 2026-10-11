@@ -104,6 +104,14 @@
                   {
                       "title":  "نقشه راه محصول",
                       "slug":  "roadmap"
+                  },
+                  {
+                      "title":  "حساب کاربری",
+                      "slug":  "account"
+                  },
+                  {
+                      "title":  "تحلیل بازار و منطقه",
+                      "slug":  "market-analytics"
                   }
               ]
 }

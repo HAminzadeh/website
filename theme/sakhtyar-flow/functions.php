@@ -1,7 +1,7 @@
 <?php
 if (!defined('ABSPATH')) { exit; }
 
-define('SYF_THEME_VERSION', '0.4.2');
+define('SYF_THEME_VERSION', '0.5.0');
 
 function syf_theme_setup() {
     add_theme_support('title-tag');
@@ -16,6 +16,7 @@ add_action('after_setup_theme', 'syf_theme_setup');
 require_once get_template_directory() . '/inc/static-pages.php';
 require_once get_template_directory() . '/inc/module-pages.php';
 require_once get_template_directory() . '/inc/ui-showcase.php';
+require_once get_template_directory() . '/inc/article-library.php';
 
 function syf_visual_themes() {
     return array(
@@ -43,6 +44,8 @@ function syf_enqueue_assets() {
     if (syf_current_visual_theme() === 'flow') {
         wp_enqueue_style('sakhtyar-flow-react-aligned', get_template_directory_uri().'/assets/css/react-aligned.css', array('sakhtyar-flow-visual-theme'), SYF_THEME_VERSION);
         wp_enqueue_style('sakhtyar-flow-experience-v042', get_template_directory_uri().'/assets/css/experience-v042.css', array('sakhtyar-flow-react-aligned'), SYF_THEME_VERSION);
+        wp_enqueue_style('sakhtyar-flow-experience-v043', get_template_directory_uri().'/assets/css/experience-v043.css', array('sakhtyar-flow-experience-v042'), SYF_THEME_VERSION);
+        wp_enqueue_style('sakhtyar-flow-experience-v050', get_template_directory_uri().'/assets/css/experience-v050.css', array('sakhtyar-flow-react-aligned'), SYF_THEME_VERSION);
     }
     wp_enqueue_script('sakhtyar-flow-main', get_template_directory_uri().'/assets/js/main.js', array(), SYF_THEME_VERSION, true);
 }
@@ -107,6 +110,8 @@ function syf_site_pages() {
         'cases'=>array('نمونه‌ها و مطالعات موردی','case-studies'),
         'about'=>array('درباره ما','about'),
         'faq'=>array('سوالات متداول','faq'),
+        'account'=>array('حساب کاربری','account'),
+        'market_analytics'=>array('تحلیل بازار و منطقه','market-analytics'),
         'contact'=>array('تماس با ما','contact'),
         'demo'=>array('درخواست دمو','request-demo'),
         'privacy'=>array('حریم خصوصی','privacy'),

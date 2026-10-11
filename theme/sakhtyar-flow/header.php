@@ -19,12 +19,14 @@
       <a href="<?php echo esc_url(home_url('/regulations/')); ?>">ضوابط</a>
       <a href="<?php echo esc_url(home_url('/feasibility/')); ?>">امکان‌سنجی</a>
       <a href="<?php echo esc_url(home_url('/ai-assistant/')); ?>">دستیار هوشمند</a>
+    <a href="<?php echo esc_url(home_url('/market-analytics/')); ?>">تحلیل بازار و منطقه</a>
+      <a href="<?php echo esc_url(home_url('/market-analytics/')); ?>">تحلیل بازار</a>
       <a href="<?php echo esc_url(home_url('/roadmap/')); ?>">نقشه راه</a>
       <a href="<?php echo esc_url(home_url('/roadmap/')); ?>">نقشه راه محصول</a>
     <a href="<?php echo esc_url(home_url('/academy/')); ?>">آکادمی</a>
     </nav>
     <div class="syf-header-actions syf-app-actions">
-      <a class="syf-btn syf-btn--ghost syf-header-login" href="<?php echo esc_url(home_url('/about/')); ?>">درباره ما</a>
+      <a class="syf-btn syf-btn--ghost syf-header-login syf-account-link" href="<?php echo esc_url(home_url('/account/')); ?>"><?php echo is_user_logged_in() ? 'حساب من' : 'ورود / عضویت'; ?></a>
       <a class="syf-btn syf-btn--primary" href="<?php echo esc_url(home_url('/request-demo/')); ?>">درخواست دمو</a>
       <button class="syf-mobile-toggle" type="button" aria-expanded="false" aria-controls="syf-mobile-nav" aria-label="باز کردن منو">☰</button>
     </div>
@@ -37,6 +39,7 @@
     <a href="<?php echo esc_url(home_url('/feasibility/')); ?>">امکان‌سنجی و سناریوسازی</a>
     <a href="<?php echo esc_url(home_url('/financial-analysis/')); ?>">تحلیل مالی</a>
     <a href="<?php echo esc_url(home_url('/ai-assistant/')); ?>">دستیار هوشمند</a>
+    <a href="<?php echo esc_url(home_url('/market-analytics/')); ?>">تحلیل بازار و منطقه</a>
     <a href="<?php echo esc_url(home_url('/builder-matching/')); ?>">تطبیق سازنده</a>
     <a href="<?php echo esc_url(home_url('/reports-documents/')); ?>">گزارش و مستندات</a>
     <a href="<?php echo esc_url(home_url('/monitoring-alerts/')); ?>">پایش و هشدار</a>
@@ -45,6 +48,7 @@
     <a href="<?php echo esc_url(home_url('/investors/')); ?>">سرمایه‌گذاران</a>
     <a href="<?php echo esc_url(home_url('/roadmap/')); ?>">نقشه راه محصول</a>
     <a href="<?php echo esc_url(home_url('/academy/')); ?>">آکادمی</a>
+    <a href="<?php echo esc_url(home_url('/account/')); ?>">حساب کاربری</a>
     <a href="<?php echo esc_url(home_url('/contact/')); ?>">تماس با ما</a>
   </nav>
 </header>

@@ -1,0 +1,140 @@
+
+/* SakhtYar Flow v0.5.0 — viewport fit, compact detail dialog, account + analytics shell */
+
+/* Home hero must fit comfortably in the first viewport on desktop */
+body.syf-theme-flow .syf-react-hero-section--v41{padding-top:22px;padding-bottom:46px}
+body.syf-theme-flow .syf-react-split-hero--v41{
+  height:clamp(520px,58vh,620px)!important;
+  min-height:0!important;
+  max-height:620px;
+  overflow:hidden
+}
+body.syf-theme-flow .syf-react-hero-media--hq,
+body.syf-theme-flow .syf-react-hero-info--v41{
+  height:100%!important;
+  min-height:0!important
+}
+body.syf-theme-flow .syf-react-hero-media--hq{background-position:center 54%}
+body.syf-theme-flow .syf-react-hero-info--v41{padding:30px 38px}
+body.syf-theme-flow .syf-react-hero-info--v41 h1{
+  font-size:clamp(42px,4vw,58px)!important;
+  line-height:1.34!important;
+  margin:12px 0 14px!important
+}
+body.syf-theme-flow .syf-react-hero-info--v41 .syf-hero__lead{font-size:15.5px!important;line-height:2!important}
+body.syf-theme-flow .syf-react-trustline{margin-top:16px!important;gap:10px!important;font-size:12px!important}
+body.syf-theme-flow .syf-hero-floating-panel{
+  left:20px!important;bottom:18px!important;width:min(390px,calc(100% - 40px))!important;
+  padding:14px!important;border-radius:16px!important
+}
+body.syf-theme-flow .syf-hero-floating-grid{margin-top:10px!important}
+body.syf-theme-flow .syf-hero-floating-grid span{padding:8px 9px!important}
+body.syf-theme-flow .syf-react-stats-row--links{margin-top:-34px!important;position:relative;z-index:4}
+
+/* Account / analytics content pages */
+body.syf-theme-flow .syf-v050-tool-hero{
+  padding:46px 0 34px;
+  background:
+    radial-gradient(circle at 100% 0%,rgba(37,99,235,.14),transparent 30rem),
+    linear-gradient(180deg,#f9fbff,#f2f6fb);
+  border-bottom:1px solid #e3eaf3
+}
+body.syf-theme-flow .syf-v050-tool-hero__grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:36px;align-items:end}
+body.syf-theme-flow .syf-v050-tool-hero h1{margin:6px 0 10px;color:#0b326f;font-size:clamp(40px,5vw,62px)}
+body.syf-theme-flow .syf-v050-tool-hero p{margin:0;color:#637791;line-height:2;font-size:17px;max-width:760px}
+body.syf-theme-flow .syf-v050-tool-hero__badge{justify-self:end;padding:10px 14px;border-radius:999px;background:#fff;border:1px solid #dfe7f1;color:#4f6989;font-size:12px;font-weight:900}
+body.syf-theme-flow .syf-v050-tool-main{padding-top:34px;padding-bottom:65px}
+body.syf-theme-flow .syf-v050-tool-main>.syf-content{max-width:none!important;margin:0!important;padding:0!important}
+
+/* Compact module detail dialog: intentionally no internal scrollbar on common desktop viewports */
+body.syf-theme-flow .syf-v43-detail-dialog{
+  width:min(1040px,calc(100vw - 30px))!important;
+  max-height:calc(100dvh - 22px)!important;
+  overflow:hidden!important;
+  border-radius:24px!important;
+  background:
+    radial-gradient(circle at 100% 0%,rgba(var(--syf-page-accent-rgb,37,99,235),.08),transparent 26rem),
+    #fff!important
+}
+body.syf-theme-flow .syf-v43-detail-dialog__head{
+  padding:18px 22px!important;
+  min-height:105px!important
+}
+body.syf-theme-flow .syf-v43-detail-dialog__head h2{font-size:26px!important;margin:3px 0 5px!important}
+body.syf-theme-flow .syf-v43-detail-dialog__head p{font-size:13px!important;line-height:1.75!important}
+body.syf-theme-flow .syf-v43-detail-dialog__body{
+  padding:16px 20px 18px!important;
+  max-height:none!important;
+  overflow:hidden!important
+}
+body.syf-theme-flow .syf-v43-detail-dialog__io{gap:12px!important}
+body.syf-theme-flow .syf-v43-detail-panel{
+  padding:14px 16px!important;
+  min-height:130px!important;
+  background:linear-gradient(180deg,#fff,#f9fbfe)!important
+}
+body.syf-theme-flow .syf-v43-detail-panel h3{font-size:16px!important;margin-bottom:8px!important}
+body.syf-theme-flow .syf-v43-detail-panel ul{gap:5px!important;font-size:12px!important;line-height:1.65!important}
+body.syf-theme-flow .syf-v43-flow{
+  margin-top:12px!important;padding:14px 16px!important;
+  background:
+    linear-gradient(rgba(var(--syf-page-accent-rgb,37,99,235),.035) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(var(--syf-page-accent-rgb,37,99,235),.035) 1px,transparent 1px),
+    #f5f8fc!important;
+  background-size:22px 22px!important
+}
+body.syf-theme-flow .syf-v43-flow h3{font-size:16px!important;margin-bottom:10px!important}
+body.syf-theme-flow .syf-v43-flow__track{gap:8px!important}
+body.syf-theme-flow .syf-v43-flow__step{
+  min-height:78px!important;padding:10px!important;
+  box-shadow:0 7px 18px rgba(31,58,95,.035)
+}
+body.syf-theme-flow .syf-v43-flow__step span{width:25px!important;height:25px!important;font-size:9px!important}
+body.syf-theme-flow .syf-v43-flow__step strong{font-size:11px!important;margin-top:6px!important;line-height:1.5!important}
+body.syf-theme-flow .syf-v43-detail-dialog__hint{
+  margin-top:10px!important;padding:9px 12px!important;font-size:11px!important;line-height:1.6!important
+}
+
+/* In case v0.4.3 generated an extra demo-form block, keep it compact too */
+body.syf-theme-flow .syf-v43-detail-form,
+body.syf-theme-flow .syf-v43-form-preview{
+  margin-top:12px!important;padding:13px 15px!important;border-radius:16px!important;
+  background:linear-gradient(145deg,#fbfdff,#f4f8fd)!important
+}
+body.syf-theme-flow .syf-v43-detail-form input,
+body.syf-theme-flow .syf-v43-detail-form select,
+body.syf-theme-flow .syf-v43-form-preview input,
+body.syf-theme-flow .syf-v43-form-preview select{min-height:38px!important;font-size:11px!important}
+
+/* More expressive page changes */
+body.syf-theme-flow .syf-v42-module-hero,
+body.syf-theme-flow .syf-v42-page-hero{
+  border-bottom:4px solid rgba(var(--syf-page-accent-rgb,37,99,235),.20)
+}
+body.syf-theme-flow .syf-v42-module-capability:nth-child(3n+1){background:linear-gradient(150deg,#fff,rgba(var(--syf-page-accent-rgb,37,99,235),.025))}
+body.syf-theme-flow .syf-v42-module-capability:nth-child(3n+2){background:linear-gradient(150deg,#fff,#fbfcfe)}
+body.syf-theme-flow .syf-v42-module-capability:nth-child(3n){background:linear-gradient(150deg,#fff,rgba(14,165,233,.025))}
+
+/* account link in header */
+body.syf-theme-flow .syf-account-link{display:inline-flex;align-items:center;gap:7px}
+body.syf-theme-flow .syf-account-link:before{content:"◉";font-size:10px;color:#2563eb}
+
+/* viewport-height fallback */
+@media(max-height:820px) and (min-width:901px){
+  body.syf-theme-flow .syf-react-split-hero--v41{height:510px!important}
+  body.syf-theme-flow .syf-react-hero-info--v41{padding:24px 32px!important}
+  body.syf-theme-flow .syf-react-hero-info--v41 h1{font-size:46px!important}
+  body.syf-theme-flow .syf-react-trustline{font-size:11px!important}
+  body.syf-theme-flow .syf-v43-detail-dialog__head{padding:14px 18px!important;min-height:90px!important}
+  body.syf-theme-flow .syf-v43-detail-dialog__body{padding:12px 16px 14px!important}
+  body.syf-theme-flow .syf-v43-detail-panel{min-height:112px!important;padding:11px 13px!important}
+  body.syf-theme-flow .syf-v43-flow__step{min-height:68px!important}
+}
+@media(max-width:900px){
+  body.syf-theme-flow .syf-react-split-hero--v41{height:auto!important;max-height:none!important}
+  body.syf-theme-flow .syf-react-hero-media--hq{height:340px!important}
+  body.syf-theme-flow .syf-react-hero-info--v41{height:auto!important}
+  body.syf-theme-flow .syf-v050-tool-hero__grid{grid-template-columns:1fr}
+  body.syf-theme-flow .syf-v050-tool-hero__badge{justify-self:start}
+  body.syf-theme-flow .syf-v43-detail-dialog__body{overflow:auto!important;max-height:calc(100dvh - 120px)!important}
+}
