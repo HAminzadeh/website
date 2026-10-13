@@ -1,7 +1,7 @@
 /* SakhtYar Website 0.6.1 */
 
 body.syf-theme-flow {
- --syf-font:"Vazirmatn",Tahoma,"Segoe UI",Arial,sans-serif;
+ --syf-font:"B Nazanin Local","B Nazanin","Vazirmatn","IRANSansX",Tahoma,Arial,sans-serif;
  font-family:var(--syf-font);
 }
 

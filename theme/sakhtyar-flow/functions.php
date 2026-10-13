@@ -1,7 +1,7 @@
 <?php
 if (!defined('ABSPATH')) { exit; }
 
-define('SYF_THEME_VERSION', '0.6.1');
+define('SYF_THEME_VERSION', '0.6.2');
 
 function syf_theme_setup() {
     add_theme_support('title-tag');
@@ -47,6 +47,7 @@ function syf_enqueue_assets() {
         wp_enqueue_style('sakhtyar-flow-experience-v043', get_template_directory_uri().'/assets/css/experience-v043.css', array('sakhtyar-flow-experience-v042'), SYF_THEME_VERSION);
         wp_enqueue_style('sakhtyar-flow-experience-v050', get_template_directory_uri().'/assets/css/experience-v050.css', array('sakhtyar-flow-react-aligned'), SYF_THEME_VERSION);
         wp_enqueue_style('sakhtyar-layout-v061', get_template_directory_uri().'/assets/css/layout-v061.css', array('sakhtyar-flow-experience-v050'), SYF_THEME_VERSION);
+        wp_enqueue_style('sakhtyar-ui-polish-v062', get_template_directory_uri().'/assets/css/ui-polish-v062.css', array('sakhtyar-layout-v061', 'sakhtyar-flow-experience-v043'), SYF_THEME_VERSION);
     }
     wp_enqueue_script('sakhtyar-flow-main', get_template_directory_uri().'/assets/js/main.js', array(), SYF_THEME_VERSION, true);
 }

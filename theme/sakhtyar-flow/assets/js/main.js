@@ -100,3 +100,72 @@ document.addEventListener('DOMContentLoaded',function(){
   if(article&&toc)article.querySelectorAll('h2').forEach(function(h,i){if(!h.id)h.id='section-'+(i+1);var a=document.createElement('a');a.href='#'+h.id;a.textContent=h.textContent;toc.appendChild(a)});
 });
 
+
+/* SYF_UI_UX_V062 */
+document.addEventListener('DOMContentLoaded', function () {
+  const button = document.querySelector('.syf-mobile-toggle');
+  const nav = document.getElementById('syf-mobile-nav');
+  const more = document.querySelector('.syf-nav-more');
+
+  if (button && nav) {
+    const closeNav = () => {
+      nav.classList.remove('is-open');
+      button.setAttribute('aria-expanded', 'false');
+      button.setAttribute('aria-label', 'باز کردن منو');
+      button.textContent = '☰';
+    };
+
+    button.addEventListener('click', () => {
+      button.setAttribute(
+        'aria-label',
+        nav.classList.contains('is-open') ? 'بستن منو' : 'باز کردن منو'
+      );
+    });
+
+    nav.querySelectorAll('a').forEach(link =>
+      link.addEventListener('click', closeNav)
+    );
+
+    document.addEventListener('click', event => {
+      if (!nav.contains(event.target) && !button.contains(event.target)) {
+        closeNav();
+      }
+    });
+
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 1180 && nav.classList.contains('is-open')) {
+        closeNav();
+      }
+    });
+
+    document.addEventListener('keydown', event => {
+      if (event.key === 'Escape' && nav.classList.contains('is-open')) {
+        closeNav();
+        button.focus();
+      }
+    });
+  }
+
+  if (more) {
+    document.addEventListener('click', event => {
+      if (!more.contains(event.target)) more.open = false;
+    });
+
+    more.querySelectorAll('a').forEach(link =>
+      link.addEventListener('click', () => { more.open = false; })
+    );
+
+    document.addEventListener('keydown', event => {
+      if (event.key === 'Escape' && more.open) {
+        more.open = false;
+        more.querySelector('summary')?.focus();
+      }
+    });
+  }
+
+  document.querySelectorAll(
+    '.syf-app-nav a.is-current,.syf-mobile-nav a.is-current'
+  ).forEach(link => {
+    link.setAttribute('aria-current', 'page');
+  });
+});
