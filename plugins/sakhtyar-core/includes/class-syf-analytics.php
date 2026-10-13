@@ -48,40 +48,71 @@ final class SYF_Core_Analytics {
         ], 503);
     }
 
+    // Phase 5.17: the Java BFF is the authoritative market source.
+    // WordPress only maps read-only observations to visual widgets.
     private static function fetch_live(string $region, string $period): ?array {
-        $path = (string) get_option(
-            'syf_backend_analytics_path',
-            '/api/v1/analytics/market'
-        );
+        $days = $period === '7d' ? 7 : ($period === '90d' ? 90 : 30);
+        $city = trim((string) get_option('syf_market_city', 'ØªÙ‡Ø±Ø§Ù†'));
+        if ($city === '') { return null; }
+        $district = apply_filters('syf_market_district', trim($region));
+        if (!is_string($district) || strlen($district) > 120) { return null; }
+        $cache_key = 'syf_517_market_' . md5(wp_json_encode([$city, $district, $days]));
+        $cached = get_transient($cache_key);
+        if (is_array($cached)) { return $cached; }
 
-        $result = SYF_Core_Backend::request(
-            'GET',
-            $path,
-            null,
-            [
-                'region' => $region,
-                'period' => $period
-            ]
-        );
-
-        if (is_wp_error($result) || !is_array($result)) {
+        $payload = SYF_Core_Backend::request('GET', '/api/web/v1/public/market', null, [
+            'city' => $city, 'district' => $district, 'days' => $days,
+        ]);
+        if (is_wp_error($payload) || !is_array($payload)) { return null; }
+        $summary = isset($payload['summary']) && is_array($payload['summary'])
+            ? $payload['summary'] : [];
+        $trend = isset($payload['trend']) && is_array($payload['trend'])
+            ? $payload['trend'] : [];
+        $count = (int) ($summary['sampleCount'] ?? 0);
+        if ($count < 1 || !is_numeric($summary['medianPricePerM2'] ?? null)) {
+            // No authoritative observations: never display fabricated prices.
             return null;
         }
-
-        if (
-            !isset(
-                $result['metrics'],
-                $result['price_series'],
-                $result['segments'],
-                $result['signals']
-            )
-        ) {
-            return null;
+        $currency = sanitize_text_field((string)($summary['currencyCode'] ?? ''));
+        $unit = $currency !== '' ? ' ' . $currency . '/Ù…ØªØ±Ù…Ø±Ø¨Ø¹' : '/Ù…ØªØ±Ù…Ø±Ø¨Ø¹';
+        $fmt = static function ($number): string {
+            return is_numeric($number) ? number_format_i18n((float)$number, 0) : 'Ù†Ø§Ù…Ø´Ø®Øµ';
+        };
+        $pct = $summary['changePercent'] ?? null;
+        $pct_label = is_numeric($pct) ? number_format_i18n((float)$pct, 2) . 'Ùª' : 'Ù†Ø§Ù…Ø´Ø®Øµ';
+        $points = [];
+        foreach ($trend as $item) {
+            if (!is_array($item) || !isset($item['day']) || !is_numeric($item['medianPricePerM2'] ?? null)) {
+                continue;
+            }
+            $points[] = [
+                'label' => sanitize_text_field((string)$item['day']),
+                'value' => (float)$item['medianPricePerM2'],
+            ];
         }
-
-        return $result;
+        $latest = sanitize_text_field((string)($summary['latestObservedAt'] ?? ''));
+        $freshness = sanitize_text_field((string)($summary['freshnessStatus'] ?? 'NO_DATA'));
+        $out = [
+            'region' => $city . ' / Ù…Ù†Ø·Ù‚Ù‡ ' . $district,
+            'period' => $period,
+            'updated_at' => $latest,
+            'sample_count' => $count,
+            'currency_code' => $currency,
+            'freshness_status' => $freshness,
+            'metrics' => [
+                ['label'=>'Ù…ÛŒØ§Ù†Ù‡ Ù‚ÛŒÙ…Øª Ù…Ø´Ø§Ù‡Ø¯Ù‡â€ŒØ´Ø¯Ù‡', 'value'=>$fmt($summary['medianPricePerM2']) . $unit, 'delta'=>$pct_label],
+                ['label'=>'Ù…ÛŒØ§Ù†Ú¯ÛŒÙ† Ù‚ÛŒÙ…Øª Ù…Ø´Ø§Ù‡Ø¯Ù‡â€ŒØ´Ø¯Ù‡', 'value'=>$fmt($summary['averagePricePerM2'] ?? null) . $unit, 'delta'=>'Ø¯Ø§Ø¯Ù‡ ÙˆØ§Ù‚Ø¹ÛŒ'],
+                ['label'=>'ØªØ¹Ø¯Ø§Ø¯ Ù†Ù…ÙˆÙ†Ù‡â€ŒÙ‡Ø§ÛŒ Ù…Ø¹ØªØ¨Ø± Ø¯Ø± Ø¨Ø§Ø²Ù‡', 'value'=>number_format_i18n($count), 'delta'=>$days . ' Ø±ÙˆØ²'],
+                ['label'=>'ØªØ§Ø²Ú¯ÛŒ Ø¢Ø®Ø±ÛŒÙ† Ù…Ø´Ø§Ù‡Ø¯Ù‡', 'value'=>$latest !== '' ? $latest : 'Ù†Ø§Ù…Ø´Ø®Øµ', 'delta'=>$freshness],
+            ],
+            'price_series' => $points,
+            'segments' => [], // No source-backed segment aggregation available yet.
+            'signals' => [],  // Do not invent market signals.
+            'note' => 'Ù…Ø¨Ù†Ø§ÛŒ Ù†Ù…Ø§ÛŒØ´: Ù…Ø´Ø§Ù‡Ø¯Ø§Øª Ø°Ø®ÛŒØ±Ù‡â€ŒØ´Ø¯Ù‡ BackendØ› Ù‚ÛŒÙ…Øª Ø¢Ú¯Ù‡ÛŒ Ù„Ø²ÙˆÙ…Ø§Ù‹ Ù‚ÛŒÙ…Øª Ù…Ø¹Ø§Ù…Ù„Ù‡ Ù†ÛŒØ³Øª. Ø¯Ø§Ø¯Ù‡â€ŒÙ‡Ø§ Ù…Ù…Ú©Ù† Ø§Ø³Øª Ù‚Ø¯ÛŒÙ…ÛŒ ÛŒØ§ Ù†Ø§Ú©Ø§ÙÛŒ Ø¨Ø§Ø´Ù†Ø¯.',
+        ];
+        set_transient($cache_key, $out, 5 * MINUTE_IN_SECONDS);
+        return $out;
     }
-
     private static function demo_payload(string $region, string $period): array {
         $region_num = max(1, min(22, (int)$region));
         $offset = ($region_num % 7) - 3;
